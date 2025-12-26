@@ -1,0 +1,1525 @@
+/* ===== ESTILOS GENERALES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+/* ===== PANTALLA DE LOGIN ===== */
+.login-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.login-header h1 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.login-header p {
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ===== APLICACIÓN PRINCIPAL ===== */
+.main-app {
+    min-height: 100vh;
+    background: #f5f7fa;
+}
+
+.app-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.header-content h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logout-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== CONTENIDO PRINCIPAL ===== */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.dashboard-section {
+    margin-bottom: 3rem;
+}
+
+.dashboard-section h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+/* ===== PANEL DE FILTROS ===== */
+.filters-panel {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.filters-panel h3 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.filters-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.filter-group h4 {
+    color: #555;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.filter-item label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.filter-item select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+/* ===== LÍNEA DE TIEMPO ===== */
+.timeline-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.timeline-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.timeline-item label {
+    color: #666;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.timeline-item input[type="range"] {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: #ddd;
+    outline: none;
+}
+
+.timeline-item select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+/* ===== BOTONES DE ACCIÓN ===== */
+.filter-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #ff7043 0%, #f4511e 100%);
+    color: white;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+    color: white;
+}
+
+/* ===== MÉTRICAS ===== */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.metric-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.metric-icon {
+    font-size: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.metric-label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* ===== GRÁFICAS ===== */
+.charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.chart-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.chart-container canvas {
+    max-height: 300px;
+}
+
+/* ===== MAPA ===== */
+.map-section h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.map-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.map-container {
+    height: 600px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== SIMBOLOGÍA POR AÑO ===== */
+.year-symbology-panel {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    padding: 6px 8px 6px 6px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    width: auto;
+    max-width: 120px;
+}
+
+.year-symbology-panel h3 {
+    margin: 0 0 4px 0;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.year-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.year-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.year-checkbox:hover {
+    background-color: #f8f9fa;
+}
+
+.year-checkbox input[type="checkbox"] {
+    margin: 0;
+    cursor: pointer;
+}
+
+.year-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+}
+
+.year-label {
+    font-size: 12px;
+    color: #333;
+    font-weight: 500;
+    user-select: none;
+}
+
+/* ===== FILTROS DEL MAPA ===== */
+.leaflet-control-heatmap {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.leaflet-control-heatmap h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 14px;
+}
+
+.heatmap-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+/* ===== ESTILOS PARA MAPA BASE ===== */
+.base-map-container {
+    margin-top: 15px;
+}
+
+.radio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.radio-item input[type="radio"] {
+    margin: 0;
+    cursor: pointer;
+}
+
+.radio-item label {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+    cursor: pointer;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin: 0;
+}
+
+.checkbox-item label {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+}
+
+/* ===== CONCENTRACIÓN DE PUNTOS ===== */
+.leaflet-control-heatmap-legend {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.leaflet-control-heatmap-legend h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 14px;
+}
+
+.heatmap-gradient {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.gradient-bar {
+    height: 20px;
+    width: 150px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    display: block;
+}
+
+.gradient-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #666;
+    margin-top: 8px;
+    line-height: 1.2;
+}
+
+/* ===== POPUP DEL MAPA ===== */
+.popup-content-compact {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.2;
+}
+
+.popup-content-compact h4 {
+    margin: 0 0 8px 0;
+    color: #333;
+    font-size: 14px;
+}
+
+.popup-content-compact p {
+    margin: 4px 0;
+    font-size: 12px;
+    color: #555;
+}
+
+.popup-content-compact a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.popup-content-compact a:hover {
+    text-decoration: underline;
+}
+
+/* ===== FILTRO DE MAPA BASE DESACTIVADO ===== */
+.leaflet-tile-pane .leaflet-layer:first-child {
+    /* filter: grayscale(100%) contrast(1.5) brightness(0.6); */
+}
+
+.leaflet-tile-pane .leaflet-layer[style*="z-index: 1"] {
+    /* filter: grayscale(100%) contrast(1.5) brightness(0.6); */
+}
+
+.leaflet-tile-pane .leaflet-layer[style*="z-index: 2"] {
+    filter: none;
+}
+
+/* ===== FOOTER ===== */
+.app-footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .filters-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .filter-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+
+/* Estilos eliminados - barra de color de concentración removida */
+
+/* Mejoras para el texto de dos líneas en checkboxes */
+.checkbox-item label {
+    line-height: 1.2;
+    font-size: 12px;
+}
+
+
+/* ===== ESTILOS PARA CHECKBOX 2025P =====*/
+.year-checkbox-2025p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.year-checkbox-2025p:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.year-checkbox-2025p input[type="checkbox"] {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.star-symbol {
+    margin-right: 5px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.year-checkbox-2025p .year-label {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+/* Estilo para marcadores de estrella en el mapa */
+.star-marker-2025p {
+    background: transparent !important;
+    border: none !important;
+}
+
+
+/* ===== ESTILOS PARA ACTUALIZACIÓN EN TIEMPO REAL ===== */
+.real-time-status {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: white;
+}
+
+#status-icon {
+    font-size: 14px;
+}
+
+#status-text {
+    font-weight: 500;
+}
+
+#manual-update {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 2px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+#manual-update:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.real-time-notification {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: #2c3e50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    font-size: 14px;
+    font-weight: 500;
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
+/* ===== PANEL DE FILTRO POR TIPO DE DELITO ===== */
+.delito-filter-panel {
+    position: absolute;
+    bottom: 20px;
+    right: 150px;
+    background: white;
+    padding: 8px 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    width: auto;
+    max-width: 200px;
+}
+
+.delito-filter-panel h3 {
+    margin: 0 0 6px 0;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.delito-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.delito-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.delito-checkbox:hover {
+    background-color: #f8f9fa;
+}
+
+.delito-checkbox input[type="checkbox"] {
+    margin: 0;
+    cursor: pointer;
+}
+
+.delito-label {
+    font-size: 11px;
+    color: #333;
+    font-weight: 500;
+    user-select: none;
+}
+
+/* Estilos para los íconos de delito */
+.delito-icon {
+    width: 11.2px;
+    height: 11.2px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+/* Triángulo - Violencia familiar */
+.delito-icon.triangulo {
+    width: 0;
+    height: 0;
+    border-left: 5.6px solid transparent;
+    border-right: 5.6px solid transparent;
+    border-bottom: 9.6px solid #ff0000;
+    position: relative;
+    top: -2px;
+}
+
+/* Cuadrado - Abuso sexual infantil */
+.delito-icon.cuadrado {
+    width: 9.6px;
+    height: 9.6px;
+    background-color: #ff0000;
+    border: 1px solid #333;
+}
+
+/* Círculo - Violación */
+.delito-icon.circulo {
+    width: 9.6px;
+    height: 9.6px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    border: 1px solid #333;
+}
+
+/* Estrella - Feminicidio */
+.delito-icon.estrella {
+    width: 11.2px;
+    height: 11.2px;
+    color: #ff0000;
+    font-size: 11.2px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 11.2px;
+}
+
+
+
+/* ===== ESTILOS PARA TABLA DINÁMICA ===== */
+
+/* Filtros de delito para la tabla */
+.pivot-filters {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    flex-wrap: wrap;
+}
+
+.pivot-delito-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px 12px;
+    background: white;
+    border-radius: 6px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.pivot-delito-filter:hover {
+    border-color: #6C5CE7;
+    box-shadow: 0 2px 8px rgba(108, 92, 231, 0.2);
+}
+
+.pivot-delito-filter input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.pivot-delito-filter span {
+    font-weight: 500;
+    color: #333;
+    user-select: none;
+}
+
+/* Contenedor de la tabla pivot */
+.pivot-table-container {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow-x: auto;
+    max-height: 800px;
+    overflow-y: auto;
+}
+
+.pivot-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 1200px;
+}
+
+/* Mensaje de carga */
+.pivot-loading {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-size: 16px;
+}
+
+/* Tabla */
+.pivot-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.pivot-table th,
+.pivot-table td {
+    border: 1px solid #ddd;
+    padding: 6px 8px;
+    text-align: center;
+}
+
+.pivot-table th {
+    background: #6C5CE7;
+    color: white;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    text-align: center;
+    font-size: 13px;
+}
+
+.pivot-table td {
+    text-align: center;
+}
+
+/* Primera columna (etiquetas de fila) */
+.pivot-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+    background: #f8f9fa;
+    position: sticky;
+    left: 0;
+    z-index: 5;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Fila JALISCO (nivel 0) */
+.pivot-table tr.level-0.jalisco-row td {
+    background: #6C5CE7;
+    color: white;
+    font-weight: 800;
+    font-size: 15px;
+    border-bottom: 3px solid #5a4db3;
+}
+
+.pivot-table tr.level-0.jalisco-row td.total-cell {
+    background: #5a4db3;
+    font-size: 16px;
+}
+
+/* Filas de nivel 1 (Zona Geográfica) */
+.pivot-table tr.level-1 td {
+    background: #e8e4f3;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* Filas de nivel 2 (Municipio) */
+.pivot-table tr.level-2 td:first-child {
+    padding-left: 30px;
+    background: #f0edf7;
+    font-weight: 600;
+}
+
+/* Filas de nivel 3 (Delito) */
+.pivot-table tr.level-3 td:first-child {
+    padding-left: 50px;
+    background: #f8f6fb;
+    font-weight: 500;
+}
+
+/* Filas de nivel 4 (Colonia) */
+.pivot-table tr.level-4 td:first-child {
+    padding-left: 70px;
+    background: #fdfcfe;
+    font-weight: 400;
+    color: #666;
+}
+
+/* Botones de expansión/colapso */
+.expand-btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 16px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    margin-right: 6px;
+    background: white;
+    font-weight: bold;
+    color: #333;
+    user-select: none;
+    transition: all 0.2s ease;
+}
+
+.expand-btn:hover {
+    background: #6C5CE7;
+    color: white;
+    border-color: #6C5CE7;
+}
+
+.expand-btn.collapsed::before {
+    content: '+';
+}
+
+.expand-btn.expanded::before {
+    content: '−';
+}
+
+/* Filas ocultas */
+.pivot-table tr.hidden {
+    display: none;
+}
+/* Encabezados de año expandibles */
+.year-header {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    min-width: 60px;
+    font-size: 12px;
+}
+
+.year-header:hover {
+    background: #5a4db3 !important;
+}
+
+.year-header .expand-year-btn {
+    display: inline-block;
+    margin-right: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(255,255,255,0.9);
+    cursor: pointer;
+}
+
+/* Subcolumnas de meses */
+.month-header {
+    background: #8b7dd8 !important;
+    font-size: 10px;
+    font-weight: 500;
+    min-width: 55px;
+    white-space: nowrap;
+    padding: 4px 6px;
+}
+
+/* Columna de total */
+.total-column {
+    background: #5a4db3 !important;
+    font-weight: 700;
+    min-width: 60px;
+    font-size: 12px;
+}
+
+/* Celdas de total */
+.pivot-table td.total-cell {
+    font-weight: 700;
+    background: #f0edf7;
+}
+
+/* Hover en filas */
+.pivot-table tr:hover td {
+    background-color: #fff9e6;
+}
+
+/* Filas de nivel 1 no cambian color en hover */
+.pivot-table tr.level-1:hover td {
+    background: #e8e4f3;
+}
+
+/* Scrollbar personalizado */
+.pivot-table-container::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.pivot-table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.pivot-table-container::-webkit-scrollbar-thumb {
+    background: #6C5CE7;
+    border-radius: 5px;
+}
+
+.pivot-table-container::-webkit-scrollbar-thumb:hover {
+    background: #5a4db3;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .pivot-filters {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .pivot-table {
+        font-size: 11px;
+    }
+    
+    .pivot-table th,
+    .pivot-table td {
+        padding: 6px 8px;
+    }
+}
+
+
+
+/* ===== TABLA DINÁMICA JERÁRQUICA ===== */
+
+.tabla-dinamica-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.tabla-dinamica {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabla-dinamica thead {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.tabla-dinamica th {
+    padding: 12px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-right: 1px solid #34495e;
+}
+
+.tabla-dinamica th.col-fija {
+    text-align: left;
+    min-width: 150px;
+    position: sticky;
+    left: 0;
+    background-color: #2c3e50;
+    z-index: 10;
+}
+
+.tabla-dinamica th.header-year {
+    cursor: pointer;
+    background-color: #3498db;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.tabla-dinamica th.header-year:hover {
+    background-color: #2980b9;
+}
+
+.tabla-dinamica th.header-month {
+    background-color: #5dade2;
+    font-size: 0.75rem;
+}
+
+.tabla-dinamica th.header-month-placeholder {
+    display: none;
+}
+
+.tabla-dinamica th.total-column {
+    background-color: #27ae60;
+    font-weight: 700;
+}
+
+.tabla-dinamica tbody tr {
+    border-bottom: 1px solid #ecf0f1;
+    transition: background-color 0.2s ease;
+}
+
+.tabla-dinamica tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.tabla-dinamica tbody tr.nivel-municipio {
+    background-color: #f5f6fa;
+    font-weight: 600;
+}
+
+.tabla-dinamica tbody tr.mes-row {
+    background-color: #fafbfc;
+    font-size: 0.9rem;
+}
+
+.tabla-dinamica td {
+    padding: 10px 8px;
+    text-align: center;
+    border-right: 1px solid #ecf0f1;
+}
+
+.tabla-dinamica td.col-ubicacion {
+    text-align: left;
+    min-width: 150px;
+    position: sticky;
+    left: 0;
+    background-color: inherit;
+    z-index: 5;
+    padding-left: 15px;
+}
+
+.tabla-dinamica td.year-cell {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.tabla-dinamica td.mes-cell {
+    background-color: #ecf0f1;
+    color: #34495e;
+}
+
+.tabla-dinamica td.empty-cell {
+    background-color: transparent;
+}
+
+.tabla-dinamica td.total-column {
+    background-color: #d5f4e6;
+    font-weight: 700;
+    color: #27ae60;
+}
+
+.tabla-dinamica tbody tr.mes-row td.total-column {
+    background-color: transparent;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tabla-dinamica th,
+    .tabla-dinamica td {
+        padding: 8px 4px;
+        font-size: 0.8rem;
+    }
+    
+    .tabla-dinamica th.col-fija,
+    .tabla-dinamica td.col-ubicacion {
+        min-width: 100px;
+    }
+}
+
+
+/* ===== TABLA DINÁMICA (PIVOT TABLE) ===== */
+
+/* Contenedor de la tabla */
+#tabla-dinamica-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 3rem;
+    overflow-x: auto;
+}
+
+#tabla-dinamica-container h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+/* Tabla principal */
+.tabla-dinamica-pivot {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9rem;
+}
+
+/* Headers de años (Fila 1) */
+.tabla-dinamica-pivot .header-row-years {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.tabla-dinamica-pivot .header-row-years th {
+    padding: 12px 8px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    user-select: none;
+}
+
+.tabla-dinamica-pivot .header-year {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.tabla-dinamica-pivot .header-year:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Headers de meses (Fila 2) */
+.tabla-dinamica-pivot .header-row-months {
+    background: #e8eef7;
+    color: #333;
+}
+
+.tabla-dinamica-pivot .header-row-months th {
+    padding: 10px 6px;
+    text-align: center;
+    font-weight: 500;
+    border: 1px solid #d0d8e8;
+    font-size: 0.8rem;
+}
+
+.tabla-dinamica-pivot .header-month-placeholder {
+    border: none;
+}
+
+/* Columna fija */
+.tabla-dinamica-pivot .col-fija {
+    position: sticky;
+    left: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    z-index: 10;
+    min-width: 250px;
+}
+
+.tabla-dinamica-pivot .header-row-months .col-fija {
+    background: #e8eef7;
+    color: #333;
+}
+
+/* Columna de ubicación (Zona/Municipio/Colonia) */
+.tabla-dinamica-pivot .col-ubicacion {
+    position: sticky;
+    left: 0;
+    background: white;
+    z-index: 5;
+    min-width: 250px;
+    padding: 10px 12px;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+}
+
+/* Filas de ZONA */
+.tabla-dinamica-pivot .row-zona {
+    background-color: #f9f9f9;
+    font-weight: 600;
+    color: #333;
+}
+
+.tabla-dinamica-pivot .row-zona .col-ubicacion {
+    background-color: #f0f0f0;
+    font-weight: 600;
+}
+
+.tabla-dinamica-pivot .row-zona:hover {
+    background-color: #f0f0f0;
+}
+
+.tabla-dinamica-pivot .row-zona:hover .col-ubicacion {
+    background-color: #e8e8e8;
+}
+
+/* Filas de MUNICIPIO */
+.tabla-dinamica-pivot .row-municipio {
+    background-color: white;
+    color: #555;
+}
+
+.tabla-dinamica-pivot .row-municipio .col-ubicacion {
+    background-color: #fafafa;
+    padding-left: 20px;
+    font-weight: 500;
+}
+
+.tabla-dinamica-pivot .row-municipio:hover {
+    background-color: #f5f5f5;
+}
+
+.tabla-dinamica-pivot .row-municipio:hover .col-ubicacion {
+    background-color: #f0f0f0;
+}
+
+/* Filas de COLONIA */
+.tabla-dinamica-pivot .row-colonia {
+    background-color: white;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.tabla-dinamica-pivot .row-colonia .col-ubicacion {
+    background-color: white;
+    padding-left: 40px;
+    color: #777;
+}
+
+.tabla-dinamica-pivot .row-colonia:hover {
+    background-color: #fafafa;
+}
+
+.tabla-dinamica-pivot .row-colonia:hover .col-ubicacion {
+    background-color: #f5f5f5;
+}
+
+/* Filas de MESES */
+.tabla-dinamica-pivot .mes-row {
+    background-color: #fefefe;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.tabla-dinamica-pivot .mes-row .col-ubicacion {
+    background-color: #fafafa;
+    padding-left: 40px;
+}
+
+.tabla-dinamica-pivot .mes-row:hover {
+    background-color: #f5f5f5;
+}
+
+/* Celdas de datos */
+.tabla-dinamica-pivot .year-cell,
+.tabla-dinamica-pivot .mes-cell,
+.tabla-dinamica-pivot .empty-cell {
+    padding: 10px 8px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+}
+
+.tabla-dinamica-pivot .mes-cell {
+    background-color: #fefefe;
+    font-size: 0.85rem;
+}
+
+.tabla-dinamica-pivot .empty-cell {
+    background-color: transparent;
+    border: none;
+}
+
+/* Columna de Total General */
+.tabla-dinamica-pivot .total-column {
+    position: sticky;
+    right: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 6;
+    min-width: 80px;
+}
+
+.tabla-dinamica-pivot .row-zona .total-column,
+.tabla-dinamica-pivot .row-municipio .total-column,
+.tabla-dinamica-pivot .row-colonia .total-column,
+.tabla-dinamica-pivot .mes-row .total-column {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.tabla-dinamica-pivot .header-row-months .total-column {
+    background: #e8eef7;
+    color: #333;
+}
+
+/* Indicadores de expansión */
+.tabla-dinamica-pivot .col-ubicacion span {
+    display: inline-block;
+    margin-right: 8px;
+    transition: transform 0.2s;
+}
+
+.tabla-dinamica-pivot .row-zona:hover .col-ubicacion span,
+.tabla-dinamica-pivot .row-municipio:hover .col-ubicacion span {
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #tabla-dinamica-container {
+        padding: 1rem;
+        overflow-x: auto;
+    }
+    
+    .tabla-dinamica-pivot {
+        font-size: 0.8rem;
+    }
+    
+    .tabla-dinamica-pivot .col-ubicacion {
+        min-width: 180px;
+    }
+    
+    .tabla-dinamica-pivot .year-cell,
+    .tabla-dinamica-pivot .mes-cell {
+        padding: 8px 4px;
+    }
+    
+    .tabla-dinamica-pivot .header-row-years th,
+    .tabla-dinamica-pivot .header-row-months th {
+        padding: 8px 4px;
+    }
+}

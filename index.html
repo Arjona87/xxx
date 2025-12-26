@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beta - Sistema Georreferenciado</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Pantalla de Login -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>Beta</h1>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <button type="submit" class="login-btn">Iniciar Sesión</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Aplicación Principal -->
+    <div id="mainApp" class="main-app" style="display: none;">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1>Beta</h1>
+                <div class="user-info">
+                    <span>Bienvenido, <strong id="currentUser"></strong></span>
+                    <button id="logoutBtn" class="logout-btn">Cerrar Sesión</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Principal -->
+        <main class="main-content">
+            <section class="dashboard-section">
+                <h2>📊 Dashboard de Analíticas</h2>
+                
+                <!-- Panel de Filtros -->
+                <div class="filters-panel">
+                    <h3>🔍 Panel de Filtrado Consolidado</h3>
+                    
+                    <div class="filters-grid">
+                        <div class="filter-group">
+                            <h4>FILTROS POR CATEGORÍA</h4>
+                            <div class="filter-row">
+                                <div class="filter-item">
+                                    <label for="municipioFilter">MUNICIPIO:</label>
+                                    <select id="municipioFilter">
+                                        <option value="">Todos los municipios</option>
+                                    </select>
+                                </div>
+                                <div class="filter-item">
+                                    <label for="delitoFilter">TIPO DE DELITO:</label>
+                                    <select id="delitoFilter">
+                                        <option value="">Todos los delitos</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <h4>⏱️ LÍNEA DE TIEMPO INTERACTIVA</h4>
+                            <div class="timeline-controls">
+                                <div class="timeline-row">
+                                    <div class="timeline-item">
+                                        <label for="startYear">AÑO DE INICIO</label>
+                                        <input type="range" id="startYear" min="2018" max="2025" value="2018">
+                                        <span id="startYearValue">2018</span>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <label for="startMonth">MES DE INICIO</label>
+                                        <select id="startMonth">
+                                            <option value="0">Enero</option>
+                                            <option value="1">Febrero</option>
+                                            <option value="2">Marzo</option>
+                                            <option value="3">Abril</option>
+                                            <option value="4">Mayo</option>
+                                            <option value="5">Junio</option>
+                                            <option value="6">Julio</option>
+                                            <option value="7">Agosto</option>
+                                            <option value="8">Septiembre</option>
+                                            <option value="9">Octubre</option>
+                                            <option value="10">Noviembre</option>
+                                            <option value="11">Diciembre</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="timeline-row">
+                                    <div class="timeline-item">
+                                        <label for="endYear">AÑO DE FIN</label>
+                                        <input type="range" id="endYear" min="2018" max="2025" value="2025">
+                                        <span id="endYearValue">2025</span>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <label for="endMonth">MES DE FIN</label>
+                                        <select id="endMonth">
+                                            <option value="0">Enero</option>
+                                            <option value="1">Febrero</option>
+                                            <option value="2">Marzo</option>
+                                            <option value="3">Abril</option>
+                                            <option value="4">Mayo</option>
+                                            <option value="5">Junio</option>
+                                            <option value="6">Julio</option>
+                                            <option value="7">Agosto</option>
+                                            <option value="8">Septiembre</option>
+                                            <option value="9">Octubre</option>
+                                            <option value="10">Noviembre</option>
+                                            <option value="11" selected>Diciembre</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-actions">
+                        <button id="applyFilters" class="btn btn-primary">🔍 Aplicar Filtros</button>
+                        <button id="clearFilters" class="btn btn-secondary">🗑️ Limpiar Filtros</button>
+                        <button id="exportResults" class="btn btn-success">📥 Descargar Resultados</button>
+                    </div>
+                </div>
+
+                <!-- Métricas -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">📊</div>
+                        <div class="metric-content">
+                            <div class="metric-value" id="totalRegistros">0</div>
+                            <div class="metric-label">Total de casos registrados</div>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">👥</div>
+                        <div class="metric-content">
+                            <div class="metric-value" id="totalVictimas">0</div>
+                            <div class="metric-label">Total de incidentes</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gráficas -->
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <h3>Víctimas por Municipio</h3>
+                        <canvas id="municipioChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Evolución anual de Víctimas</h3>
+                        <canvas id="anualChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Casos por municipio</h3>
+                        <canvas id="fosasChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Evolución Anual de Casos</h3>
+                        <canvas id="fosasAnualChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección del Mapa -->
+            <section class="map-section">
+                <h2>🗺️ Mapa Dinámico</h2>
+                <div class="map-wrapper">
+                    <div id="map" class="map-container"></div>
+                    
+                    <!-- Cuadro de Simbología por Año -->
+                    <div class="year-symbology-panel">
+                        <h3>Año</h3>
+                        <div class="year-checkboxes">
+                            <label class="year-checkbox">
+                                <input type="checkbox" id="year-2018" value="2018">
+                                <span class="year-color" style="background-color: #2C3E50;"></span>
+                                <span class="year-label">2018</span>
+                            </label>
+                            <label class="year-checkbox">
+                                <input type="checkbox" id="year-2019" value="2019">
+                                <span class="year-color" style="background-color: #27AE60;"></span>
+                                <span class="year-label">2019</span>
+                            </label>
+                            <label class="year-checkbox">
+                                <input type="checkbox" id="year-2020" value="2020">
+                                <span class="year-color" style="background-color: #3498DB;"></span>
+                                <span class="year-label">2020</span>
+                            </label>
+                            <label class="year-checkbox">
+                                <input type="checkbox" id="year-2021" value="2021">
+                                <span class="year-color" style="background-color: #F1C40F;"></span>
+                                <span class="year-label">2021</span>
+                            </label>
+                            <label class="year-checkbox">
+                                <input type="checkbox" id="year-2022" value="2022">
+                                <span class="year-color" style="background-color: #E67E22;"></span>
+                                <span class="year-label">2022</span>
+                            </label>
+                            <label class="year-checkbox">
+                                <input type="checkbox" id="year-2023" value="2023">
+                                <span class="year-color" style="background-color: #9B59B6;"></span>
+                                <span class="year-label">2023</span>
+                            </label>
+                            <label class="year-checkbox">
+                                <input type="checkbox" id="year-2024" value="2024">
+                                <span class="year-color" style="background-color: #95A5A6;"></span>
+                                <span class="year-label">2024</span>
+                            </label>
+                            <label class="year-checkbox">
+                                <input type="checkbox" id="year-2025" value="2025" checked>
+                                <span class="year-color" style="background-color: #E74C3C;"></span>
+                                <span class="year-label">2025</span>
+                            </label>
+                            <label class="year-checkbox">
+                                <input type="checkbox" id="showAllYears">
+                                <span class="year-color" style="background-color: #000000;"></span>
+                                <span class="year-label"><strong>TODOS</strong></span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Cuadro de Filtro por Tipo de Delito -->
+                    <div class="delito-filter-panel">
+                        <h3>Tipo de Delito</h3>
+                        <div class="delito-checkboxes">
+                            <label class="delito-checkbox">
+                                <input type="checkbox" id="delito-violencia-familiar" value="violencia familiar" checked>
+                                <span class="delito-icon triangulo"></span>
+                                <span class="delito-label">Violencia familiar</span>
+                            </label>
+                            <label class="delito-checkbox">
+                                <input type="checkbox" id="delito-abuso-sexual" value="abuso sexual infantil" checked>
+                                <span class="delito-icon cuadrado"></span>
+                                <span class="delito-label">Abuso sexual infantil</span>
+                            </label>
+                            <label class="delito-checkbox">
+                                <input type="checkbox" id="delito-violacion" value="violacion" checked>
+                                <span class="delito-icon circulo"></span>
+                                <span class="delito-label">Violación</span>
+                            </label>
+                            <label class="delito-checkbox">
+                                <input type="checkbox" id="delito-feminicidio" value="feminicidio" checked>
+                                <span class="delito-icon estrella">★</span>
+                                <span class="delito-label">Feminicidio</span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+ <!-- Sección de Tabla Dinámica -->
+            <section class="dashboard-section">
+                <h2>📊 Tabla Dinámica</h2>
+                
+                <!-- Contenedor de la Tabla Pivot -->
+                <div class="pivot-table-container">
+                    <div id="pivot-table" class="pivot-table">
+                        <!-- La tabla se generará dinámicamente con JavaScript -->
+                        <div class="pivot-loading">Cargando tabla dinámica...</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Beta</p>
+        </footer>
+    </div>
+
+
+
+
+
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
