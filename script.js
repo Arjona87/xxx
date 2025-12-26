@@ -1775,7 +1775,7 @@ class PivotTableManager {
     }
 
     renderTable() {
-        const container = document.getElementById('tabla-dinamica-container');
+        const container = document.getElementById('pivot-table');
         if (!container) return;
 
         if (this.filteredData.length === 0) {
