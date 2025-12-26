@@ -2222,9 +2222,9 @@ function initializePivotTable() {
     }
     
     // Inicializar tabla dinámica Pivot (nuevo componente)
-    if (typeof initializePivotTableIntegration === 'function') {
-        initializePivotTableIntegration();
-    }
+    //if (typeof initializePivotTableIntegration === 'function') {
+    //    initializePivotTableIntegration();
+    //}
 }
 
 // Actualizar la tabla pivot cuando cambien los datos o filtros
